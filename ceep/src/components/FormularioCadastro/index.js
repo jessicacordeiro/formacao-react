@@ -3,13 +3,15 @@ import "./style.css";
 
 export default class FormularioCadastro extends Component {
 
-  constructor() {
-    super();
-    this.titulo = "";
+  constructor(props) {
+    super(props);
+    this.title = "";
+    this.text = "";
+    this.handlerChangeTitle = this.handlerChangeTitle.bind(this);
   }
 
-  handleMudancaTitulo(evento) {
-    this.titulo = evento.target.value;
+  handlerChangeTitle(evento) {
+    this.title = evento.target.value;
   }
   
   render() {
@@ -19,7 +21,7 @@ export default class FormularioCadastro extends Component {
           type="text"
           placeholder="Título"
           className="form-cadastro_input"
-          onChange= {this.handleMudancaTitulo.bind(this)}
+          onChange= {this.handlerChangeTitle}
         />
         <textarea
           rows={15}
