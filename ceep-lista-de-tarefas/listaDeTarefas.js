@@ -9,13 +9,15 @@
     
         const tarefa = document.createElement('li')
         tarefa.classList.add('task')
+
+        if(input.value != " ") {
+            const conteudo = `<p class="content">${valor}</p>`
     
-        const conteudo = `<p class="content">${valor}</p>`
-    
-        tarefa.innerHTML = conteudo
-    
-        tarefa.appendChild(BotaoConclui())
-        lista.appendChild(tarefa)
+            tarefa.innerHTML = conteudo
+        
+            tarefa.appendChild(BotaoConclui())
+            lista.appendChild(tarefa)
+        }
         input.value = " "
     }
     
