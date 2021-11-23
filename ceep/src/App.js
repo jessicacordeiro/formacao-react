@@ -22,11 +22,19 @@ export default class App extends Component{
     this.setState(newState)
   }
 
+  deleteCard(index) {
+    let arrayNotas = this.state.notas
+    arrayNotas.splice(index, 1);
+    this.setState({notas: arrayNotas})
+  }
+
   render() {
     return (
       <section className="conteudo">
         <FormularioCadastro createdCard={this.createdCard.bind(this)}/>
-        <ListasDeNotas notas ={this.state.notas} />
+        <ListasDeNotas notas ={this.state.notas} 
+          deleteNota = {this.deleteCard.bind(this)} 
+        />
       </section>
     );
   }
