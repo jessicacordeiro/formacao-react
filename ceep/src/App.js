@@ -11,7 +11,7 @@ export default class App extends Component{
  
   constructor() {
     super();
-    this.category = new Categorias();
+    this.categorias = new Categorias();
     this.notas = new ArrayNotas();
   }
 
@@ -19,13 +19,13 @@ export default class App extends Component{
     return (
       <section className="conteudo">
         <FormularioCadastro 
-          category={this.category.category} 
+          category={this.categorias.items} 
           createdCard={this.notas.createdCard}
         />
         <main className="conteudo-principal">
           <ListaDeCategorias 
-            addCategory={this.notas.addCategory} 
-            category={this.category.category}
+            addCategory={this.categorias.addCategory.bind(this.categorias)} 
+            category={this.categorias.items}
           />
           <ListasDeNotas notas ={this.notas.notas} 
             deleteNota = {this.notas.deleteCard} 

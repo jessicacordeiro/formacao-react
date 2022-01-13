@@ -1,6 +1,6 @@
 export default class Categorias {
     constructor() {
-        this.category = [];
+        this.items = [];
         this._inscritos = [];
     }
 
@@ -14,7 +14,7 @@ export default class Categorias {
         });
     }
 
-    addCategory(newCategory) {
-        this.category.push(newCategory);
+    addCategory = (newCategory) => {
+        this.items.push(newCategory);
     }
 }
