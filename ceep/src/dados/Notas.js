@@ -1,6 +1,17 @@
 export default class ArrayNotas {
     constructor() {
-        this.notas = []
+        this.notas = [];
+        this._inscritos = [];
+    }
+
+    inscrever(func) {
+        this._inscritos.push(func)
+    }
+
+    notificar() {
+        this._inscritos.forEach(func => {
+            func(this.category);
+        });
     }
 
     createdCard(title, text, category) {
