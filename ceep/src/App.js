@@ -1,34 +1,35 @@
 import React, { Component } from "react";
-import ListasDeNotas from "./components/ListasDeNotas/index";
-import FormularioCadastro from "./components/FormularioCadastro/index";
-import ListaDeCategorias from "./components/ListaCategorias";
+import ListCategories from "./components/ListCategories";
+import ListNote from "./components/ListNote"
+import FormRegister from "./components/FormRegister"
+import Categories from "./dados/Categories";
+import ArrayNotes from "./dados/Notes";
 import "./assets/App.css";
 import './assets/index.css';
-import Categorias from "./dados/Categorias";
-import ArrayNotas from "./dados/Notas";
 
 export default class App extends Component{
  
   constructor() {
     super();
-    this.categorias = new Categorias();
-    this.notas = new ArrayNotas();
+    this.categories = new Categories();
+    this.notes = new ArrayNotes();
   }
 
   render() {
     return (
       <section className="conteudo">
-        <FormularioCadastro 
-          category={this.categorias.items} 
-          createdCard={this.notas.createdCard}
+        <FormRegister 
+          addNotes={this.notes.addNotes.bind(this.notes)}
+          categories={this.categories}   
         />
         <main className="conteudo-principal">
-          <ListaDeCategorias 
-            addCategory={this.categorias.addCategory.bind(this.categorias)} 
-            category={this.categorias.items}
+          <ListCategories
+            addCategory={this.categories.addCategory.bind(this.categories)} 
+            categories={this.categories}
           />
-          <ListasDeNotas notas ={this.notas.notas} 
-            deleteNota = {this.notas.deleteCard} 
+          <ListNote
+            notes={this.notes}
+            deleteNote={this.notes.deleteNote.bind(this.notes)}
           />
         </main>
       </section>

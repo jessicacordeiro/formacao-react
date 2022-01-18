@@ -4,9 +4,10 @@ import { ReactComponent as DeleteSVG } from "../../assets/img/delete.svg";
 
  class CardNotas extends Component {
      delete() {
-         const indice = this.props.indice
-         this.props.deleteNota(indice)
+         const indice = this.props.indice;
+         this.props.deleteNote(indice);
      }
+
      render() {
         return (
             <section className="card-nota">
